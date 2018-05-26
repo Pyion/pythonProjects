@@ -80,10 +80,10 @@ class mazeDFS:
                 self.arrayToPNG[i][j] = numpy.array([k*(not self.arrayToPrint[i][j]) for k in [255,255,255]])
     def saveImage(self):
         sys.setrecursionlimit(self.mazeDimensions[0]*self.mazeDimensions[1])
-        self.dfsMazeAlgorithm((0,0))
+        self.dfsMazeAlgorithm((1,1))
         self.mazePrintingArray()
         self.createMazeImage()
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
         generatedMazeImage.save("mazeImage.png")
-maze = mazeDFS((50,50))
+maze = mazeDFS((30,30))
 maze.saveImage()

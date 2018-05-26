@@ -77,5 +77,5 @@ class mazeBFS:
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
         generatedMazeImage.save("queueMazeImage.png")
 
-maze = mazeBFS((50,50),(0,0))
+maze = mazeBFS((30,30),(1,1))
 maze.saveImage()
