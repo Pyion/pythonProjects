@@ -1,7 +1,7 @@
 from math import *
 from decimal import *
 
-globalNumberDights = 1000
+globalNumberDights = 10000
 
 class piAlgorithm:
     aRecurention = Decimal((2)).sqrt()
@@ -32,7 +32,7 @@ class piAlgorithm:
 
 if(__name__=="__main__"):
     piCalculating = piAlgorithm()
-    piFile=open('pi','w')
+    piFile=open('pi1','w')
     piFile.write(str(piCalculating.calculateDightsPi(globalNumberDights)))
     piFile.close()
     print(piCalculating.numberOfRecurention)
