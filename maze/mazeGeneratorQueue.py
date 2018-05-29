@@ -76,13 +76,13 @@ class mazeBFS:
 
     def createPath(self,endCell):
         currentCell = endCell
-        #print("cell:",currentCell)
         while(list(self.cellBeforeArr[currentCell[0]][currentCell[1]]) != currentCell):
-            #print("cell: ",currentCell)
             self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array([255,0,0],numpy.uint8)
+            self.arrayToPNG[currentCell[0]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][0])+1]\
+                [currentCell[1]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][1])+1] = numpy.array([255,100,100],numpy.uint8)
             currentCell = self.cellBeforeArr[currentCell[0]][currentCell[1]]
             currentCell = [int(i) for i in currentCell]
-            #print("cell:  ",currentCell)
+            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array([255,0,0],numpy.uint8)
 
     def saveImage(self):
         self.createMazeImage()
@@ -92,5 +92,5 @@ class mazeBFS:
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
         generatedMazeImage.save("queueMazeImagePath.png")
 
-maze = mazeBFS((50,3),(0,0))
+maze = mazeBFS((300,300),(0,0))
 maze.saveImage()
