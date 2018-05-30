@@ -15,6 +15,8 @@ class mazeBFS:
         self.initMazeArray()
         self.avilableCells = numpy.ones(self.mazeDimensions)
         self.initBfs(startPosition)
+        self.colourE = [255,100,100]
+        self.colourM = [255,0,0]
 
     def initMazeArray(self):
         for i in range(self.mazePrintDimensions[0]):
@@ -30,19 +32,13 @@ class mazeBFS:
         if(self.isCellInMaze(queryCell)):
             if(self.avilableCells[queryCell[0]][queryCell[1]] == 1):
                 return True
-            else:
-                return False
-        else:
-            return False
+        return False
 
     def isCellInMaze(self,checkPosition):
         if(checkPosition[0]>=0 and checkPosition[0]<self.mazeDimensions[0]):
             if(checkPosition[1]>=0 and checkPosition[1]<self.mazeDimensions[1]):
                 return True
-            else:
-                return False
-        else:
-            return False
+        return False
 
     def checkCells(self,queryCell):
         sequenceList = [i for i in range(4)]
@@ -77,12 +73,12 @@ class mazeBFS:
     def createPath(self,endCell):
         currentCell = endCell
         while(list(self.cellBeforeArr[currentCell[0]][currentCell[1]]) != currentCell):
-            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array([255,0,0],numpy.uint8)
+            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array(self.colourM,numpy.uint8)
             self.arrayToPNG[currentCell[0]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][0])+1]\
-                [currentCell[1]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][1])+1] = numpy.array([255,100,100],numpy.uint8)
+                [currentCell[1]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][1])+1] = numpy.array(self.colourE,numpy.uint8)
             currentCell = self.cellBeforeArr[currentCell[0]][currentCell[1]]
             currentCell = [int(i) for i in currentCell]
-            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array([255,0,0],numpy.uint8)
+            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array(self.colourM,numpy.uint8)
 
     def saveImage(self):
         self.createMazeImage()
@@ -92,5 +88,6 @@ class mazeBFS:
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
         generatedMazeImage.save("queueMazeImagePath.png")
 
-maze = mazeBFS((300,300),(0,0))
+maze = mazeBFS((30,30),(0,0))
+maze.colourE, maze.colourM = [randint(0,256),randint(0,256),randint(0,256)],[randint(0,256),randint(0,256),randint(0,256)]
 maze.saveImage()
