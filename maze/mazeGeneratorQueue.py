@@ -73,12 +73,12 @@ class mazeBFS:
     def createPath(self,endCell):
         currentCell = endCell
         while(list(self.cellBeforeArr[currentCell[0]][currentCell[1]]) != currentCell):
-            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array(self.colourM,numpy.uint8)
+            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = self.randomizeColour()
             self.arrayToPNG[currentCell[0]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][0])+1]\
-                [currentCell[1]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][1])+1] = numpy.array(self.colourE,numpy.uint8)
+                [currentCell[1]+int(self.cellBeforeArr[currentCell[0]][currentCell[1]][1])+1] = self.randomizeColour()
             currentCell = self.cellBeforeArr[currentCell[0]][currentCell[1]]
             currentCell = [int(i) for i in currentCell]
-            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = numpy.array(self.colourM,numpy.uint8)
+            self.arrayToPNG[2*currentCell[0]+1][2*currentCell[1]+1] = self.randomizeColour()
 
     def saveImage(self):
         self.createMazeImage()
@@ -88,6 +88,8 @@ class mazeBFS:
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
         generatedMazeImage.save("queueMazeImagePath.png")
 
+    def randomizeColour(self):
+        return numpy.array([randint(0,256),randint(0,256),randint(0,256)])
 maze = mazeBFS((30,30),(0,0))
 maze.colourE, maze.colourM = [randint(0,256),randint(0,256),randint(0,256)],[randint(0,256),randint(0,256),randint(0,256)]
 maze.saveImage()
