@@ -102,6 +102,6 @@ class mazeBFS:
 
     def randomizeColour(self):
         return numpy.array([randint(0,256),randint(0,256),randint(0,256)])
-maze = mazeBFS((10,10),(0,0))
-#maze.colourE, maze.colourM = [randint(0,256),randint(0,256),randint(0,256)],[randint(0,256),randint(0,256),randint(0,256)]
+maze = mazeBFS((30,30),(0,0))
+maze.colourE, maze.colourM = [randint(0,256),randint(0,256),randint(0,256)],[randint(0,256),randint(0,256),randint(0,256)]
 maze.saveImage(False)

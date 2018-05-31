@@ -85,5 +85,5 @@ class mazeDFS:
         self.createMazeImage()
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
         generatedMazeImage.save("mazeImage.png")
-maze = mazeDFS((30,30))
+maze = mazeDFS((200,200))
 maze.saveImage()
