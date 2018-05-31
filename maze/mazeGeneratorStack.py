@@ -92,13 +92,13 @@ class mazeBFS:
     def saveImage(self,isRandom = False):
         self.createMazeImage()
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
-        generatedMazeImage.save("queueMazeImage.png")
+        generatedMazeImage.save("stackMazeImage.png")
         if(isRandom):
             self.createPathRandom((self.mazeDimensions[0]-1,self.mazeDimensions[1]-1))
         else:
             self.createPath((self.mazeDimensions[0]-1,self.mazeDimensions[1]-1))
         generatedMazeImage = Image.fromarray(self.arrayToPNG, "RGB")
-        generatedMazeImage.save("queueMazeImagePath.png")
+        generatedMazeImage.save("stackMazeImagePath.png")
 
     def randomizeColour(self):
         return numpy.array([randint(0,256),randint(0,256),randint(0,256)])

@@ -1,0 +1,7 @@
+My projects written in python
+
+
+files:
+    maze:
+	mazeGeneratorStack.py -> generating maze with and without path using stack
+	mazeGenerator.py -> generating maze using recurention
