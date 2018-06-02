@@ -1,7 +1,15 @@
-My projects written in python
+My projects written in python3
+
+Needed python lib:
+numpy
+PIL
 
 
 files:
     maze:
 	mazeGeneratorStack.py -> generating maze with and without path using stack
 	mazeGenerator.py -> generating maze using recurention
+   piAndStuff:
+	piProgram.py -> generating pi
+	imagePi -> generating image from pi
+	piSlow -> slow pi calculating algorithm
