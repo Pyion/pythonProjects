@@ -6,10 +6,12 @@ PIL
 
 
 files:
-    maze:
-	mazeGeneratorStack.py -> generating maze with and without path using stack
-	mazeGenerator.py -> generating maze using recurention
-   piAndStuff:
-	piProgram.py -> generating pi
-	imagePi -> generating image from pi
-	piSlow -> slow pi calculating algorithm
+	maze:
+		mazeGeneratorStack.py -> generating maze with and without path using stack
+		mazeGenerator.py -> generating maze using recurention
+	piAndStuff:
+		piProgram.py -> generating pi
+		imagePi.py -> generating image from pi
+		piSlow.py -> slow pi calculating algorithm
+	stopwatch.py -> showing time from start of the program with 0.001 s precision
+	randomImage.py -> gererating random image
